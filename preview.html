@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clean CSV/Excel files 100% in your browser. Remove duplicates, fix formats, and sanitize data instantly. No uploads - your data stays private.">
+    <meta name="keywords" content="clean CSV online, Excel data cleaning, remove duplicates from CSV, CSV formatter, free CSV tool, sanitize Excel data">
+    <title>Clean CSV Online | Free Excel Data Cleaning Tool (No Uploads)</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Free Data Cleaning Tool",
+      "description": "Browser-based tool to clean CSV/Excel files without uploading data",
+      "url": "https://yourwebsite.com",
+      "applicationCategory": "DataAnalysisTool",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <!-- Add this to <head> section -->
+    <meta name="description" content="Clean CSV/Excel files online for free. Remove duplicates, fix formats, and process data 100% in your browser - no uploads needed.">
+    <meta name="keywords" content="clean CSV, clean Excel, remove duplicates, data cleaning tool, free data cleaning, CSV formatter">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com" />
+
+    <!-- Open Graph (for social sharing) -->
+    <meta property="og:title" content="Free Data Cleaning Tool">
+    <meta property="og:description" content="Clean CSV/Excel files in your browser - no server uploads.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/preview-image.png">
+    <!-- Favicon for all devices -->
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+
+    <!-- Recommended favicon formats -->
+    <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+<body>
+    <div class="container">
+      <!-- Update your header section -->
+      <header class="browser-header">
+          <div class="header-content">
+              <div class="logo-container">
+                  <img src="logo/logo.png" alt="LazyClean Free CSV cleaning" class="header-logo">
+                  <span class="logo-text">LazyClean</span>
+              </div>
+              <div class="header-text">
+                  <h1>Clean CSV Files Online <small>Free & Secure Browser Tool</small></h1>
+                  <h2>Remove Duplicates, Fix Formats, and Sanitize Data</h2>
+                  <p>Clean your CSV/Excel files in seconds</p>
+              </div>
+          </div>
+      </header>
+        <header>
+            <h1>🧼 Your cleaned file is ready</h1>
+            <!--<p>Your cleaned file is ready</p>-->
+        </header>
+
+        <main>
+            <div class="cleaning-report" id="cleaningReport">
+                <h2>Cleaning Report</h2>
+                <ul id="reportList"></ul>
+            </div>
+
+            <div class="preview-section">
+                <h2>Data Preview (First 50 rows)</h2>
+                <div class="table-container" id="cleanedTablePreview"></div>
+                <p class="processing-info" id="processingInfo"></p>
+            </div>
+
+            <div class="download-section">
+                <button class="btn btn-primary" id="downloadBtn">⬇ Download Cleaned File</button>
+                <div class="download-options">
+                    <label><input type="radio" name="format" value="csv" checked> CSV</label>
+                    <label><input type="radio" name="format" value="excel"> Excel</label>
+                </div>
+            </div>
+
+            <div class="back-link">
+                <a href="index.html">← Back to Uploader</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Your data never leaves your browser. No server processing.</p>
+        </footer>
+    </div>
+
+    <script src="preview.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+:root {
+    --primary-blue: #3498db;
+    --secondary-blue: #2980b9;
+    --light-blue: #e1f0fa;
+    --dark-gray: #2c3e50;
+    --medium-gray: #95a5a6;
+    --light-gray: #ecf0f1;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+/* Header Styles */
+.site-header {
+    background: white;
+    padding: 20px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-logo {
+    height: 60px; /* Adjust based on your logo */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.header-text {
+    flex: 1;
+}
+
+/* Keep your existing header text styles */
+.header-text h1,
+.header-text h2,
+.header-text p {
+    margin: 5px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-logo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .header-logo {
+        height: 50px;
+    }
+}
+/* Browser-style Header */
+.browser-header {
+    width: 100%;
+    background: #f1f3f4;
+    padding: 12px 0;
+    border-bottom: 1px solid #dadce0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+/* Add to your CSS */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.logo-text {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #202124;
+    white-space: nowrap;
+}
+
+/* Adjust header content spacing */
+.header-content {
+    gap: 10px; /* Reduced from 20px */
+}
+
+/* Optional: Add divider between logo and title */
+.logo-container::after {
+    content: "|";
+    color: #dadce0;
+    margin-left: 15px;
+    font-weight: 300;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-logo {
+    height: 30px;
+    width: auto;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #3c4043;
+}
+
+.header-text small {
+    font-size: 0.9rem;
+    color: #5f6368;
+}
+
+/* Remove container padding for full-width effect */
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Adjust main content to account for sticky header */
+main {
+    padding-top: 20px;
+}
+
+.upload-area {
+    border: 2px dashed var(--medium-gray);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    background-color: var(--white);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-blue);
+}
+
+.upload-area.drag-over {
+    background-color: var(--light-blue);
+    border-color: var(--primary-blue);
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+    fill: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--secondary-blue);
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    padding: 12px 24px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.small {
+    font-size: 14px;
+    color: var(--medium-gray);
+    margin: 10px 0;
+}
+
+.preview-section, .options-section {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.option-item input[type="text"] {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid var(--medium-gray);
+    border-radius: 4px;
+    width: 80px;
+}
+
+.column-formats {
+    margin-top: 30px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+th {
+    background-color: var(--primary-blue);
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+.download-options {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cleaning-report {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+.cleaning-report ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.cleaning-report li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.cleaning-report li::before {
+    content: "✓";
+    color: var(--primary-blue);
+    position: absolute;
+    left: -20px;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    color: var(--medium-gray);
+    font-size: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .upload-area {
+        padding: 30px 15px;
+    }
+
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-container {
+        max-height: 300px;
+    }
+}
+/* FAQ Section Styles */
+.faq {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 25px;
+    margin: 30px 0;
+    box-shadow: var(--shadow);
+}
+
+.faq h2 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 15px;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    color: var(--dark-gray);
+    font-size: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.faq-item h3::before {
+    content: "+";
+    color: var(--primary-blue);
+    font-size: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.faq-item.active h3::before {
+    content: "-";
+}
+
+.faq-item p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-left: 34px;
+}
+
+.faq-item.active p {
+    max-height: 200px; /* Adjust based on content */
+}
+/* Features Section */
+.features {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  margin: 40px 0;
+  box-shadow: var(--shadow);
+}
+
+.features h2 {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  background: var(--light-blue);
+  padding: 20px;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-blue);
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.features-list li:hover {
+  transform: translateY(-5px);
+}
+
+.features-list li::before {
+  content: "✓";
+  color: var(--primary-blue);
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+.features-list strong {
+  color: var(--secondary-blue);
+}
+/* How It Works Section */
+.how-it-works {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  margin: 40px 0;
+  box-shadow: var(--shadow);
+}
+
+.how-it-works h2 {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.step {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 25px 15px;
+  background: var(--light-blue);
+  border-radius: 8px;
+  position: relative;
+}
+
+.step h3 {
+  color: var(--secondary-blue);
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.step-number {
+  background: var(--primary-blue);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column;
+  }
+}
+/* CSS for flexible color theming */
+:root {
+  --lazyclean-blue: #4A90E2;
+  --lazyclean-peach: #FF9F43;
+}
+
+.logo-icon {
+  fill: var(--lazyclean-blue);
+}
+
+.logo-text {
+  color: #333;
+  border-bottom: 3px solid var(--lazyclean-peach);
+}
