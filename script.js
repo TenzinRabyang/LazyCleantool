@@ -27,10 +27,17 @@ dropZone.addEventListener('dragleave', handleDragLeave);
 dropZone.addEventListener('drop', handleDrop);
 cleanBtn.addEventListener('click', processAndCleanData);
 handleEmptyValues.addEventListener('change', function() {
-    emptyValueReplacement.disabled = !this.checked;
+  const container = document.getElementById('emptyValueContainer');
+  container.style.display = this.checked ? 'block' : 'none';
+  emptyValueReplacement.disabled = !this.checked;
 });
+// Update the event listener for removeSpecialChars checkbox
 removeSpecialChars.addEventListener('change', function() {
-    specialCharsColumns.style.display = this.checked ? 'block' : 'none';
+    const container = document.getElementById('specialCharsContainer');
+    container.style.display = this.checked ? 'block' : 'none';
+    if (this.checked) {
+        specialCharsColumns.style.display = 'block';
+    }
 });
 
 // Handle file selection
@@ -184,15 +191,17 @@ function createColumnFormatControls() {
 
     headers.forEach((header, index) => {
         const div = document.createElement('div');
-        div.className = 'option-item';
+        div.className = 'format-control';
 
         const label = document.createElement('label');
-        label.textContent = header + ': ';
+        label.textContent = header;
         label.htmlFor = `format-${index}`;
+        label.className = 'format-label';
 
         const select = document.createElement('select');
         select.id = `format-${index}`;
         select.name = `format-${index}`;
+        select.className = 'format-select';
 
         const options = [
             { value: 'auto', text: 'Auto-detect' },
@@ -211,8 +220,8 @@ function createColumnFormatControls() {
         // Date format dropdown (hidden by default)
         const dateFormatDiv = document.createElement('div');
         dateFormatDiv.id = `date-format-${index}`;
+        dateFormatDiv.className = 'option-extra';
         dateFormatDiv.style.display = 'none';
-        dateFormatDiv.style.marginTop = '5px';
 
         const dateFormatLabel = document.createElement('label');
         dateFormatLabel.textContent = 'Date format: ';

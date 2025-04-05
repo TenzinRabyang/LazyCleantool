@@ -73,7 +73,7 @@
           </div>
           <!-- Add this wrapper for the toggle -->
           <div class="header-actions">
-            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">  🌓 </button>
+            <p>Dark mode<button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">  🌓 </button></p>
           </div>
         </div>
       </header>
@@ -98,41 +98,73 @@
             </div>
 
             <div class="options-section" id="optionsSection" style="display: none;">
-                <h2>Cleaning Options</h2>
-                <div class="options-grid">
-                    <div class="option-item">
-                        <input type="checkbox" id="removeDuplicates" checked>
-                        <label for="removeDuplicates">Remove duplicate rows</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" id="trimWhitespace" checked>
-                        <label for="trimWhitespace">Trim whitespace from all columns</label>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" id="removeSpecialChars">
-                        <label for="removeSpecialChars">Remove special characters from:</label>
-                        <select id="specialCharsColumns" multiple style="display: none; width: 100%; margin-top: 5px;">
-                            <!-- Dynamically populated -->
-                        </select>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" id="handleEmptyValues">
-                        <label for="handleEmptyValues">Replace empty values with:</label>
-                        <input type="text" id="emptyValueReplacement" placeholder="N/A" disabled>
-                    </div>
-                    <div class="option-item">
-                        <input type="checkbox" id="removeExtraSpaces" checked>
-                        <label for="removeExtraSpaces">Remove extra spaces between words</label>
-                    </div>
-                </div>
+              <h2 class="section-title">Cleaning Options</h2>
+              <div class="options-grid">
+                  <!-- Option 1: Remove Duplicates -->
+                  <div class="option-card">
+                      <div class="option-header">
+                          <input type="checkbox" id="removeDuplicates" checked>
+                          <label for="removeDuplicates" class="option-title">Remove duplicate rows</label>
+                      </div>
+                      <p class="option-description">Eliminate identical rows from your dataset</p>
+                  </div>
 
-                <div class="column-formats" id="columnFormatsSection">
-                    <h3>Column Formats</h3>
-                    <div id="columnFormatControls"></div>
-                </div>
+                  <!-- Option 2: Trim Whitespace -->
+                  <div class="option-card">
+                      <div class="option-header">
+                          <input type="checkbox" id="trimWhitespace" checked>
+                          <label for="trimWhitespace" class="option-title">Trim whitespace</label>
+                      </div>
+                      <p class="option-description">Remove extra spaces from beginning and end of values</p>
+                  </div>
 
-                <button class="btn btn-primary" id="cleanBtn">Clean My File</button>
-            </div>
+                  <!-- Option 3: Remove Special Chars -->
+                  <div class="option-card">
+                      <div class="option-header">
+                          <input type="checkbox" id="removeSpecialChars">
+                          <label for="removeSpecialChars" class="option-title">Remove special characters</label>
+                      </div>
+                      <p class="option-description">Clean non-alphanumeric characters from selected columns</p>
+                      <div class="option-extra" id="specialCharsContainer" style="display: none;">
+                          <label class="select-label">From columns:</label>
+                          <select id="specialCharsColumns" multiple class="multi-select">
+                              <!-- Dynamically populated -->
+                          </select>
+                      </div>
+                  </div>
+
+                  <!-- Option 4: Handle Empty Values -->
+                  <div class="option-card">
+                      <div class="option-header">
+                          <input type="checkbox" id="handleEmptyValues">
+                          <label for="handleEmptyValues" class="option-title">Replace empty values</label>
+                      </div>
+                      <p class="option-description">Fill blank cells with custom text</p>
+                      <div class="option-extra" id="emptyValueContainer" style="display: none;">
+                          <input type="text" id="emptyValueReplacement" placeholder="N/A" class="replacement-input">
+                      </div>
+                  </div>
+
+                  <!-- Option 5: Remove Extra Spaces -->
+                  <div class="option-card">
+                      <div class="option-header">
+                          <input type="checkbox" id="removeExtraSpaces" checked>
+                          <label for="removeExtraSpaces" class="option-title">Remove extra spaces</label>
+                      </div>
+                      <p class="option-description">Clean multiple spaces between words</p>
+                  </div>
+              </div>
+
+              <!-- Column Formats Section -->
+              <div class="column-formats" id="columnFormatsSection">
+                  <h3 class="section-subtitle">Column Formats</h3>
+                  <div id="columnFormatControls" class="format-controls-grid"></div>
+              </div>
+
+              <button class="btn btn-primary clean-button" id="cleanBtn">
+                  <span class="btn-icon">🧹</span> Clean My File
+              </button>
+          </div>
             <!-- Features Section -->
             <section class="features">
               <h2>Why Use Our Data Cleaning Tool?</h2>
