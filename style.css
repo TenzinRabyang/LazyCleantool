@@ -1,12 +1,31 @@
 :root {
-    --primary-blue: #3498db;
-    --secondary-blue: #2980b9;
-    --light-blue: #e1f0fa;
-    --dark-gray: #2c3e50;
-    --medium-gray: #95a5a6;
-    --light-gray: #ecf0f1;
-    --white: #ffffff;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Light theme (default) */
+  --primary-blue: #3498db;
+  --secondary-blue: #2980b9;
+  --light-blue: #e1f0fa;
+  --dark-gray: #2c3e50;
+  --medium-gray: #95a5a6;
+  --light-gray: #ecf0f1;
+  --white: #ffffff;
+  --text-color: #333;
+  --bg-color: #f9f9f9;
+  --header-bg: #fff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --primary-blue: #5dade2;
+  --secondary-blue: #3498db;
+  --light-blue: #1a5276;
+  --dark-gray: #ecf0f1;
+  --medium-gray: #bdc3c7;
+  --light-gray: #2c3e50;
+  --white: #34495e;
+  --text-color: #f5f5f5;
+  --bg-color: #1a1a1a;
+  --header-bg: #2c3e50;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -17,9 +36,8 @@
 }
 
 body {
-    background-color: var(--light-gray);
-    color: var(--dark-gray);
-    line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .container {
@@ -89,15 +107,31 @@ header h1 {
 }
 /* Browser-style Header */
 .browser-header {
-    width: 100%;
-    background: #f1f3f4;
-    padding: 12px 0;
-    border-bottom: 1px solid #dadce0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
+  position: fixed; /* Changed from sticky to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--header-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  padding: 12px 0; /* Consistent padding */
+}
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: auto; /* Pushes to the right */
+  padding: 5px;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 /* Add to your CSS */
 .logo-container {
@@ -111,13 +145,9 @@ header h1 {
     font-family: 'Segoe UI', system-ui, sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #202124;
     white-space: nowrap;
-}
-
-/* Adjust header content spacing */
-.header-content {
-    gap: 10px; /* Reduced from 20px */
+    color: var(--text-color);
+    border-bottom: 3px solid var(--lazyclean-peach);
 }
 
 /* Optional: Add divider between logo and title */
@@ -131,11 +161,25 @@ header h1 {
 .header-content {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Pushes items to edges */
     gap: 20px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+.header-actions {
+  margin-left: auto; /* Forces toggle to the far right */
+  padding: 0 10px;
+}
+/* Compact header text for smaller screens */
+@media (max-width: 768px) {
+  .header-text h1 {
+    font-size: 1rem;
+  }
+  .header-text small {
+    display: none; /* Hide subtitle on mobile */
+  }
 }
 
 .header-logo {
@@ -146,12 +190,12 @@ header h1 {
 .header-text h1 {
     margin: 0;
     font-size: 1.1rem;
-    color: #3c4043;
+    color: var(--text-color) !important;
 }
 
 .header-text small {
     font-size: 0.9rem;
-    color: #5f6368;
+    color: var(--medium-gray) !important;
 }
 
 /* Remove container padding for full-width effect */
@@ -162,9 +206,16 @@ header h1 {
 
 /* Adjust main content to account for sticky header */
 main {
-    padding-top: 20px;
+    padding-top: 200px;
 }
-
+@media (max-width: 768px) {
+  .browser-header {
+    padding: 8px 0; /* Smaller padding on mobile */
+  }
+  main {
+    padding-top: 300px; /* Adjust for mobile header */
+  }
+}
 .upload-area {
     border: 2px dashed var(--medium-gray);
     border-radius: 8px;
@@ -529,9 +580,4 @@ footer {
 
 .logo-icon {
   fill: var(--lazyclean-blue);
-}
-
-.logo-text {
-  color: #333;
-  border-bottom: 3px solid var(--lazyclean-peach);
 }

@@ -13,7 +13,7 @@
       "@type": "WebApplication",
       "name": "Free Data Cleaning Tool",
       "description": "Browser-based tool to clean CSV/Excel files without uploading data",
-      "url": "https://lazycleantool.com",
+      "url": "https://yourwebsite.com",
       "applicationCategory": "DataAnalysisTool",
       "operatingSystem": "Web",
       "offers": {
@@ -28,14 +28,14 @@
     <meta name="keywords" content="clean CSV, clean Excel, remove duplicates, data cleaning tool, free data cleaning, CSV formatter">
     <meta name="author" content="Your Name">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://lazycleantool.com" />
+    <link rel="canonical" href="https://yourwebsite.com" />
 
     <!-- Open Graph (for social sharing) -->
     <meta property="og:title" content="Free Data Cleaning Tool">
     <meta property="og:description" content="Clean CSV/Excel files in your browser - no server uploads.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lazycleantool.com">
-    <meta property="og:image" content="https://lazycleantool.com/preview-image.png">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/preview-image.png">
     <!-- Favicon for all devices -->
     <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -47,24 +47,21 @@
 </head>
 <body>
     <div class="container">
-      <!-- Update your header section -->
+      <!-- Updated header with dark mode toggle -->
       <header class="browser-header">
-          <div class="header-content">
-              <div class="logo-container">
-                  <img src="logo/logo.png" alt="LazyClean Free CSV cleaning" class="header-logo">
-                  <span class="logo-text">LazyClean</span>
-              </div>
-              <div class="header-text">
-                  <h1>Clean CSV Files Online <small>Free & Secure Browser Tool</small></h1>
-                  <h2>Remove Duplicates, Fix Formats, and Sanitize Data</h2>
-                  <p>Clean your CSV/Excel files in seconds</p>
-              </div>
+        <div class="header-content">
+          <div class="logo-container">
+            <img src="logo/logo.png" alt="LazyClean Free CSV cleaning" class="header-logo">
+            <span class="logo-text">LazyCleanTool</span>
           </div>
-      </header>
-        <header>
+          <div class="header-text">
             <h1>🧼 Your cleaned file is ready</h1>
-            <!--<p>Your cleaned file is ready</p>-->
-        </header>
+          </div>
+          <div class="header-actions">
+            <p>Dark mode<button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">  🌓 </button></p>
+          </div>
+        </div>
+      </header>
 
         <main>
             <div class="cleaning-report" id="cleaningReport">
@@ -97,5 +94,24 @@
     </div>
 
     <script src="preview.js"></script>
+    <!-- Dark Mode Script -->
+    <script>
+      // Dark Mode Toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+      // Check saved preference or system preference
+      const currentTheme = localStorage.getItem('theme') ||
+                          (prefersDarkScheme.matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', currentTheme);
+
+      // Toggle function
+      themeToggle.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    </script>
 </body>
 </html>
